@@ -4,7 +4,7 @@
         <div class="container-full">
 
             <section class="content">
-                <div class="row">
+                <div class="row">   
 
                     <div class="col-8">
 
@@ -29,6 +29,7 @@
                                         </thead>
                                         <tbody>
 
+                                            <!-- ===== PERCORRER A TABLE ===== -->
                                             @foreach ($suppliers as $item)
                                                 <tr>
 
@@ -73,13 +74,13 @@
                                     <form method="post" action="{{ route('supplier.store') }}">
                                         @csrf
 
-                                        <!-- INPUT FIELD NOME -->
+                                        <!-- ===== INPUT FIELD NOME ===== -->
                                         <div class="form-group">
                                             <h5>Nome<span class="text-danger">*</span></h5>
                                             <div class="controls">
                                                 <input type="text" name="supplier_name" class="form-control">
 
-                                                <!-- Mensagem de Erro -->
+                                                <!-- ===== MENSAGEM DE ERRO ===== -->
                                                 @error('supplier_name')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -87,28 +88,28 @@
                                             </div>
                                         </div>
 
-                                        <!-- INPUT FIELD RAZÃO SOCIAL -->
+                                        <!-- ===== INPUT FIELD RAZÃO SOCIAL ===== -->
                                         <div class="form-group">
                                             <h5>Razão Social<span class="text-danger">*</span></h5>
                                             <div class="controls">
                                                 <input type="text" name="supplier_company" class="form-control">
 
-                                                <!-- Mensagem de Erro -->
+                                                <!-- ===== MENSAGEM DE ERRO ===== -->
                                                 @error('supplier_company')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
-                                                <!-- /Mensagem de Erro -->
+                                               
                                             </div>
 
                                         </div>
 
-                                        <!-- INPUT FIELD TELEFONE -->
+                                        <!-- ===== INPUT FIELD TELEFONE ===== -->
                                         <div class="form-group">
                                             <h5>Telefone<span class="text-danger">*</span></h5>
                                             <div class="controls">
                                                 <input type="text" name="supplier_phone" class="form-control">
 
-                                                <!-- Mensagem de Erro -->
+                                                <!-- ===== MENSAGEM DE ERRO ===== -->
                                                 @error('supplier_phone')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -118,7 +119,7 @@
                                         </div>
 
 
-                                        <!-- Botão adicionar formato 'success' (verde) -->
+                                        <!-- ===== BOTÃO ADD VERDE ===== -->
                                         <div class="text-xs-right">
                                             <input type="submit" class="btn btn-rounded btn-success mb-5"
                                                 value="Adicionar Fornecedor">
