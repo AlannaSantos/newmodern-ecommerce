@@ -20,6 +20,10 @@
                                 <form method="post" action="{{ route('supplier.update', $suppliers->id) }}">
                                     @csrf
 
+                                    {{-- incluir dados que não podem ser vistos ou modificados 
+                                        pelos usuários quando um formulário é enviado --}}
+                                    <input type="hidden" name="id" value="{{ $suppliers->id }}">
+
                                     <div class="form-group">
                                         <h5>Nome <span class="text-danger">*</span></h5>
                                         <div class="controls">
@@ -56,6 +60,7 @@
                                     <div class="text-xs-right">
                                         <input type="submit" class="btn btn-rounded btn-success mb-5" value="Atualizar">
                                     </div>
+
                                 </form>
 
                             </div>

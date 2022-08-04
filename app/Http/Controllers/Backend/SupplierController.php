@@ -69,14 +69,13 @@ class SupplierController extends Controller
     public function SupplierUpdate(Request $request)
     {
 
-        $suppliers_id = $request->id;
+        $suppliers = $request->id;
 
-
-        Supplier::findOrFail($suppliers_id)->update([
+        Supplier::findOrFail($suppliers)->update([
 
             'supplier_name' => $request->supplier_name,
             'supplier_company' => $request->supplier_company,
-            'supplier_phone' => $request->supplier_phone
+            'supplier_phone' => $request->supplier_phone,
 
         ]);
 

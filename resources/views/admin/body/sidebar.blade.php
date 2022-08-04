@@ -59,7 +59,7 @@
                   </li>
 
                   <!-- ====================== FORNECEDORES ======================-->
-                  <li class="treeview {{ $prefix == '/supplier' ? 'active' : '' }}">
+                  <li class="treeview {{ $prefix == '/suppliers' ? 'active' : '' }}">
                       <a href="#">
                           <i data-feather="book-open"></i>
                           <span>Fornecedores</span>

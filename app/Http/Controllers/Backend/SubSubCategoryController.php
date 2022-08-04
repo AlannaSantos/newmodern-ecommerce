@@ -50,7 +50,6 @@ class SubSubCategoryController extends Controller
             [
                 'category_id' => 'required', // fk category
                 'subcategory_id' => 'required', // fk subbcategory 
-                // 'subsubcategory_name_en' => 'required',
                 'subsubcategory_name_pt' => 'required',
             ],
 
@@ -65,15 +64,12 @@ class SubSubCategoryController extends Controller
 
         // Salvar imagem no BD
         SubSubCategory::insert([
-
-            // FK category   
+ 
             'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
-            // 'subsubcategory_name_en' => $request->subsubcategory_name_en,
             'subsubcategory_name_pt' => $request->subsubcategory_name_pt,
 
             //Slug: deixar o BD mais organizado; strtolower converte string para minusculo, se tiver espaço, substitui com traço
-            // 'subsubcategory_slug_en' => strtolower(str_replace('', '-', $request->subsubcategory_name_en)),
             'subsubcategory_slug_pt' => strtolower(str_replace('', '-', $request->subsubcategory_name_pt)),
 
         ]);

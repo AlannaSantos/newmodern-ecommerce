@@ -35,24 +35,6 @@
                                             <input type="hidden" name="old_image" value="{{ $category->category_image }}"> --}}
                                              
 
-
-                                        {{-- <!-- INPUT FIELD P/ CATEGORIA EN -->
-                                        <div class="form-group">
-                                            <h5> Category <span class="text-danger">*</span></h5>
-                                            <div class="controls">
-                                                <input type="text" name="category_name_en" class="form-control"
-                                                    value="{{ $category->category_name_en }}">
-                                                <!-- Mostrar nome categoria dinamicamente -->
-
-
-                                                <!-- Mensagem de Erro -->
-                                                @error('category_name_en')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                                <!-- /Mensagem de Erro -->
-                                            </div>
-                                        </div> --}}
-
                                         <!-- INPUT FIELD P/ CATEGORIA PTBR -->
                                         <div class="form-group">
                                             <h5> Categoria <span class="text-danger">*</span></h5>
