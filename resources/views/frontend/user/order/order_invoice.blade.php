@@ -64,7 +64,7 @@
                 <pre class="font">
                    NewModern Ecommerce<br>
                    Email:suporte@newmodern.com.br <br>
-                   WhatsApp Corp. +55 45 99818-2382 <br>
+                   WhatsApp +55 45 99818-2382 <br>
                    Foz do Iguaçu - PR 
                 </pre>
             </td>

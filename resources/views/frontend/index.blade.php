@@ -421,9 +421,8 @@
 
 
                                                                     <!-- Modal Bootstrap Button -->
-                                                                    <button class="btn btn-primary icon"
-                                                                        type="button" title="Add Cart"
-                                                                        data-toggle="modal"
+                                                                    <button class="btn btn-primary icon" type="button"
+                                                                        title="Add Cart" data-toggle="modal"
                                                                         data-target="#exampleModal"
                                                                         id="{{ $product->id }}"
                                                                         onclick="productView(this.id)"> <i
@@ -466,8 +465,6 @@
                         </div>
 
                         <!--======================================== NOVOS PRODUTOS ============================================ -->
-
-
                         @foreach ($categories as $category)
                             <div class="tab-pane" id="category{{ $category->id }}">
                                 <div class="product-slider">
@@ -519,8 +516,6 @@
                                                                     </div>
                                                                 @endif
                                                             </div>
-
-
 
                                                         </div>
 
@@ -611,8 +606,6 @@
                                             </h5>
                                         @endforelse
 
-
-
                                     </div>
                                 </div>
                             </div>
@@ -620,7 +613,6 @@
                     </div>
                 </div>
 
-                <!-- ============================================== SCROLL TABS : END ============================================== -->
                 <!-- ============================================== BANNER ENTRE CATEGORIAS PROJETO FUTURO ============================================== -->
                 {{-- <div class="wide-banners wow fadeInUp outer-bottom-xs">
                     <div class="row">
@@ -764,10 +756,7 @@
                                                     </button> --}}
 
 
-                                                    <!-- ========== /BOTÃO WISHLIST ======== -->
-
-
-                                              {{--  </ul>
+                {{-- </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -906,7 +895,6 @@
 
                                                         </button>
                                                     </li>
-                                                    <!-- ========== /BOTÃO ADICIONAR AO CARRINHO ======= -->
 
                                                     <!-- ========== BOTÃO WISHLIST PROJETO FUTURO ======= -->
 
@@ -916,9 +904,8 @@
                                                         onclick="addToWishList(this.id)"> <i class="fa fa-heart"></i>
                                                     </button> --}}
 
-                                                    <!-- ========== /BOTÃO WISHLIST ======== -->
 
-                                           {{--     </ul>
+                {{-- </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -1033,11 +1020,9 @@
 
                                                         </button>
                                                     </li>
-                                                    <!-- ========== /BOTÃO ADICIONAR AO CARRINHO ======= -->
+
 
                                                     <!-- ========== BOTÃO WISHLIST ======= -->
-
-
                                                     {{-- <!-- Wishlist Button -->
                                                     <button class="btn btn-primary icon" type="button"
                                                         title="Wishlist" id="{{ $product->id }}"
@@ -1045,17 +1030,14 @@
                                                     </button> --}}
 
 
-                                                    <!-- ========== /BOTÃO WISHLIST ======== -->
-                                            
-                                            {{--    </ul>
+                {{-- </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
-
-                    </div>
+I                    </div>
 
                 </section> --}}
 
@@ -1178,8 +1160,7 @@
                                                     </button> --}}
 
 
-                                                    <!-- ========== /BOTÃO WISHLIST ======== -->
-                                              {{--  </ul>
+                {{-- </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -1316,17 +1297,13 @@
                         </div>
                     </div>
                 </section> --}}
-
-                <!-- ============================================== BLOG SLIDER : END ============================================== -->
             </div>
 
-            <!-- ============================================== CONTENT : END ============================================== -->
         </div>
 
         <!-- ============================================== BRANDS CAROUSEL PROJETO FUTURO ============================================== -->
         {{-- @include('frontend.body.brands') --}}
 
-        <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
     </div>
 </div>
 

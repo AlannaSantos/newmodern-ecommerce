@@ -56,46 +56,6 @@
                     </ul>
                 </div>
 
-                <div class="cnt-block">
-
-                    <ul class="list-unstyled list-inline">
-                        <!-- ============= ESCOLHER MOEDA (IMPLEMENTAR ESSA LÓGICA FUTURAMENTRE) ============= -->
-
-                        {{-- <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle"
-                                data-hover="dropdown" data-toggle="dropdown"><span class="value">USD </span><b
-                                    class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">USD</a></li>
-                                <li><a href="#">INR</a></li>
-                                <li><a href="#">GBP</a></li>
-                            </ul>
-                        </li> --}}
-
-                        <!-- ================ PROJETO FUTURO INTERNACIONALIZAÇÃO ==================== -->
-                        {{-- <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle"
-                                data-hover="dropdown" data-toggle="dropdown"><span class="value">
-                                    <!-- CONDIÇÃO: verificar a sessão do usuário, se for portugues, mostrar a opção inglês, se for inglês, mostrar opção português -->
-                                    @if (session()->get('language') == 'portuguese')
-                                        Idioma
-                                    @else
-                                        Language
-                                    @endif
-                                </span><b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-
-                                <!-- CONDIÇÃO: verificar a sessão do usuário, se for portugues, mostrar a opção inglês, se for inglês, mostrar opção português -->
-                                @if (session()->get('language') == 'portuguese')
-                                    <li><a href="{{ route('english.language') }}">English</a></li>
-                                @else
-                                    <li><a href="{{ route('portuguese.language') }}">Português</a></li>
-                                @endif
-                            </ul>
-                        </li> --}}
-                        <!-- ================ /PROJETO FUTURO INTERNACIONALIZAÇÃO ==================== -->
-
-                    </ul>
-                </div>
-
                 <div class="clearfix"></div>
             </div>
         </div>
@@ -113,56 +73,19 @@
                                 src="{{ asset('frontend/assets/images/logo-header-edit.png') }}" alt="logo"> </a>
 
                     </div>
-                    <!-- /.logo -->
-                    <!-- ============================================================= LOGO : END ============================================================= -->
+
                 </div>
 
-                <!-- /.logo-holder -->
 
                 <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder">
-                    <!-- /.contact-row -->
 
+                    {{-- PLACE HOLDER --}}
 
-                    <!-- ============================================================= SEARCH AREA ============================================================= -->
-                    {{-- <div class="search-area">
-                        <form>
-                            <div class="control-group">
-                                <ul class="categories-filter animate-dropdown">
-                                    <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown"
-                                            href="category.html">Categories <b class="caret"></b></a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li class="menu-header">Computer</li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                    href="category.html">-
-                                                    Clothing</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                    href="category.html">-
-                                                    Electronics</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                    href="category.html">-
-                                                    Shoes</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                    href="category.html">-
-                                                    Watches</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <input class="search-field" placeholder="Search here..." />
-                                <a class="search-button" href="#"></a>
-                            </div>
-                        </form>
-                    </div> --}}
-
-                    <!-- /.search-area -->
-                    <!-- ============================================================= SEARCH AREA : END ============================================================= -->
                 </div>
-                <!-- /.top-search-holder -->
 
                 <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row">
 
-                    <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
-
-
+                    <!-- =========================== SHOPPING CART DROPDOWN =========================== -->
                     <div class="dropdown dropdown-cart"> <a href="#" class="dropdown-toggle lnk-cart"
                             data-toggle="dropdown">
                             <div class="items-cart-inner">
@@ -176,31 +99,28 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <!--   // Mini Cart Start with Ajax -->
+                                <!--   // Mini carrinho header com AJAX -->
 
                                 <div id="miniCart">
 
+                                    {{-- LÓGICA ESTÁ NOS MÉTODOS GET/POST AJAX
+                                    LOCALIZADO NA MAIN_MASTER.BLADE.PHP --}}
+
                                 </div>
-
-                                <!--   // End Mini Cart Start with Ajax -->
-
 
                                 <div class="clearfix cart-total">
                                     <div class="pull-right"> <span class="text">Sub Total :</span>
                                         <span class='price' id="cartSubTotal"> </span>
                                     </div>
                                     <div class="clearfix"></div>
-                                    <a href="checkout.html"
+                                    <a href="{{ route('checkout') }}"
                                         class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
                                 </div>
-                                <!-- /.cart-total-->
+
 
                             </li>
                         </ul>
                     </div>
-
-
-                    <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->
                 </div>
             </div>
         </div>
@@ -231,7 +151,7 @@
                                 </li>
 
 
-                                <!-- =========================== DEIXAR O MENU DROPDOWN DINÂMICO CHAMANDO AS CATEGORIAS DO PAINEL ADMIN =========================== -->
+                                <!-- ======= DEIXAR O MENU DROPDOWN DINÂMICO CHAMANDO AS CATEGORIAS DO PAINEL ADMIN ======= -->
 
                                 <!-- Relacionar a subcategoria com a fk categoria; quando bater com a categoria id, então, order by ascendente -->
 
@@ -332,6 +252,4 @@
             </div>
         </div>
     </div>
-    <!-- ============================================== NAVBAR : END ============================================== -->
-
 </header>

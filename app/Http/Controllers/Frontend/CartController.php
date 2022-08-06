@@ -27,8 +27,9 @@ class CartController extends Controller
 
         $product = Product::findOrFail($id);
 
+        // Se o produto não tem disconto 
         if ($product->product_discount_price == null) {
-            // bumbummen99/shoppingcart
+            // pacote bumbummen99/shoppingcart
             Cart::add([
                 'id' => $id,
                 'name' => $request->product_name,
@@ -44,7 +45,8 @@ class CartController extends Controller
 
             return response()->json(['success' => 'Produto Adicionado ao Carrinho']);
         } else {
-            //bumbummen99/shoppingcart
+            // Se o produto tem disconto
+            // pacote bumbummen99/shoppingcart
             Cart::add([
                 'id' => $id,
                 'name' => $request->product_name,

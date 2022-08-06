@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Images;
 use App\Models\Slider;
 use App\Models\Product;
-use App\Models\Brand;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,68 +16,93 @@ use Illuminate\Support\Facades\Hash;
 
 class IndexController extends Controller
 {
-    // [HOME]
+    // Método p/ acessar HOME
     public function index()
     {
-        // 'Baixar' as informações admin backend categorias no menu vertical esquerdo da HOME
+        // Pegar os dados da tabelae categoria em ordem crescente e atribílos à variável $categories
         $categories = Category::orderBy('category_name_pt', 'ASC')->get();
 
-        // 'Baixar' os dados admin backend sliders no SliderHome e mostrar apenas 3 sliders. PROJETO REAL LUCAS
-        $sliders = Slider::where('slider_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
-
-        // 'Baixar' os dados admin backend products no NovosProdutosHome se ativar o produto no painel, então ele irá aparecer no front Novos Produtos
+        // Pegar os dados da tabela produtos, onde o status é um (ativo) em ordem decrescnte e atribuílos à varipavel $products
         $products = Product::where('product_status', 1)->orderBy('id', 'DESC')->get();
 
-        // 'Baixar' os dados admin backend products no FeaturedProductsHome  se ativar o produto no painel, então ele irá aparecer no front Featured Products PROJETO REAL LUCAS
+        // Pegar Imagem Marca
+        $brands = Brand::orderBy('id', 'ASC')->get();
+
+
+        /**
+         * AQUI FAZ PARTE DO MEU PROJETO PESSOAL...
+         * NÃO FOI DEFINIDO NA DOCUMENTAÇÃO E NÃO DEVE SER COBRADO NA APRESENTAÇAO
+         * TRATA-SE DE UM PROJETO REAL ONDE VENDEREI PRODUTOS REAIS NA ESPERANÇA
+         * DE FUGIR DO TRABALHO ASSALARIADO...
+         * 
+         **/
+        $sliders = Slider::where('slider_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+
         $featured = Product::where('product_featured', 1)->orderBy('id', 'DESC')->get();
 
-        // 'Baixar' os dados admin backend products no HotDealsProductsHome  se ativar o produto no painel, então ele irá aparecer no front Hot Deals Products. Só deve aparece produtos com o campo desconto. PROJETO REAL LUCAS
         $hotdeals = Product::where('product_hot_deals', 1)->where('product_discount_price', '!=', null)->orderBy('id', 'DESC')->limit(6)->get();
 
-        // 'Baixar' os dados admin backend products no SpecialDealsProductsHome  se ativar o produto no painel, então ele irá aparecer no front Special Deals Products PROJETO REAL LUCAS
         $specialdeals = Product::where('product_special_deals', 1)->orderBy('id', 'DESC')->limit(3)->get();
 
-        // 'Baixar' os dados admin backend products no SpecialDealsProductsHome  se ativar o produto no painel, então ele irá aparecer no front Special Deals Products PROJETO REAL LUCAS
         $specialoffers = Product::where('product_special_offer', 1)->orderBy('id', 'DESC')->limit(4)->get();
 
 
-         /** PROJETO FUTURO 
-         * Função nativa do Laravel skip(), serve p/ pular categorias e mostrar, dinamicamente, todos os produtos da categoria desejada.
-         * $skip_category_0 = Category::skip(0)->first();
-         * $skip_product_0 = Product::where('product_status', 1)->where('category_id', $skip_category_0->id)->orderBy('id', 'DESC')->get();
+        /**
+         * AQUI FAZ PARTE DO MEU PROJETO PESSOAL...
+         * NÃO FOI DEFINIDO NA DOCUMENTAÇÃO E NÃO DEVE SER COBRADO NA APRESENTAÇAO
+         * TRATA-SE DE UM PROJETO REAL ONDE VENDEREI PRODUTOS REAIS NA ESPERANÇA
+         * DE FUGIR DO TRABALHO ASSALARIADO...
+         * 
+         **/
+        // $skip_category_0 = Category::skip(0)->first();
+        // $skip_product_0 = Product::where('product_status', 1)->where('category_id', $skip_category_0->id)->orderBy('id', 'DESC')->get();
 
-         * $skip_category_1 = Category::skip(1)->first();
-         * $skip_product_1 = Product::where('product_status', 1)->where('category_id', $skip_category_1->id)->orderBy('id', 'DESC')->get();
+        // $skip_category_1 = Category::skip(1)->first();
+        // $skip_product_1 = Product::where('product_status', 1)->where('category_id', $skip_category_1->id)->orderBy('id', 'DESC')->get();
 
-         * $skip_brand_1 = Brand::skip(1)->first();
-         * $skip_brand_product_1 = Product::where('product_status', 1)->where('brand_id', $skip_brand_1->id)->orderBy('id', 'DESC')->get();
-        */
+        // $skip_brand_1 = Brand::skip(1)->first();
+        // $skip_brand_product_1 = Product::where('product_status', 1)->where('brand_id', $skip_brand_1->id)->orderBy('id', 'DESC')->get();
+
 
         return view('frontend.index', compact(
             'categories',
             'products',
+            'brands',
 
-            // PROJETO FUTURO
+
+            /**
+             * AQUI FAZ PARTE DO MEU PROJETO PESSOAL...
+             * NÃO FOI DEFINIDO NA DOCUMENTAÇÃO E NÃO DEVE SER COBRADO NA APRESENTAÇAO
+             * TRATA-SE, DE UM PROJETO REAL ONDE VENDEREI PRODUTOS REAIS NA ESPERANÇA
+             * DE FUGIR DO TRABALHO ASSALARIADO...
+             * 
+             **/
             'sliders',
             'featured',
             'hotdeals',
             'specialdeals',
             'specialoffers',
 
-            /**
-             *  PROJETO FUTURO 
-             *'skip_category_0',
-             *'skip_product_0',
-             *'skip_category_1',
-             *'skip_product_1',
-             *'skip_brand_1',
-             *'skip_brand_product_1' */
+        /**
+         * AQUI FAZ PARTE DO MEU PROJETO PESSOAL...
+         * NÃO FOI DEFINIDO NA DOCUMENTAÇÃO E NÃO DEVE SER COBRADO NA APRESENTAÇAO
+         * TRATA-SE, DE UM PROJETO REAL ONDE VENDEREI PRODUTOS REAIS NA ESPERANÇA
+         * DE FUGIR DO TRABALHO ASSALARIADO...
+         * 
+         **/
+
+            // 'skip_category_0',
+            // 'skip_product_0',
+            // 'skip_category_1',
+            // 'skip_product_1',
+            // 'skip_brand_1',
+            // 'skip_brand_product_1' 
 
 
         ));
     }
 
-    // [LOGOUT]
+    // Método logout usuário
     public function UserLogout()
     {
 
@@ -90,7 +115,7 @@ class IndexController extends Controller
         return Redirect()->route('index');
     }
 
-    //  [PROFILE]
+    //  Método p/ acessar view_page 'meu perfil'
     public function UserProfile()
     {
         //Verificar o usuario pelo ID e atribuir à variável ID
@@ -123,7 +148,7 @@ class IndexController extends Controller
 
         //Toaster message
         $notification = array(
-            'message' => 'User Profile Updated Successfully',
+            'message' => 'Perfil Atualizado com Sucesso',
             'alert-type' => 'success'
         );
 
@@ -147,14 +172,24 @@ class IndexController extends Controller
 
         $hashedPassword = Auth::user()->password;
 
+
         if (Hash::check($request->oldpassword, $hashedPassword)) {
             $user = User::find(Auth::id());
             $user->password = Hash::make($request->password);
             $user->save();
-            Auth::logout();
-            return redirect()->route('user.logout');
+            // auth()->guard('web')->logout(); 
+
+            //Toaster message
+            $notification = array(
+                'message' => 'Senha Atualizada com Sucesso',
+                'alert-type' => 'success'
+            );
+
+            // Se tudo der certo, o usuário é redirecionado para a home com a mensagem de sucesso.
+            return redirect()->route('index')->with($notification);
         } else {
 
+            // Caso contrário, o mesmo é redirecionado para a pagina manter senha
             return redirect()->back();
         }
     }
@@ -165,23 +200,15 @@ class IndexController extends Controller
         // Achar o produto pelo o ID
         $product = Product::findOrFail($id);
 
-        // Achar o produto pela Cor Inglês
-        $color = $product->product_color_en;
-        $product_color_en = explode(',', $color);
-
-        // Achar o produto pela Cor PTBR
+        // Achar o produto pela Cor 
         $cor = $product->product_color_pt;
         $product_color_pt = explode(',', $cor);
 
-        // Achar o produto pelo tamanho Inglês
-        $size = $product->product_size_en;
-        $product_size_en = explode(',', $size);
-
-        // Achar o produto pelo tamanho Inglês
+        // Achar o produto pelo tamanho 
         $tamanho = $product->product_size_pt;
         $product_size_pt = explode(',', $tamanho);
 
-        // 'Baixar' as imagens da Model Images quando o id do produto combinar, apóis isso, pegar pela função get()
+        // Achar as imagens da Model Images quando o id do produto combinar, apóis isso, pegar pela função get() e atribuí-los à variável $images
         $images = Images::where('product_id', $id)->get();
 
         // Pegar a ID Categoria relacionado com o produto clickado pelo cliente
@@ -192,58 +219,78 @@ class IndexController extends Controller
         $related = Product::where('category_id', $category_id)->where('id', '!=', $id)->orderBy('id', 'DESC')->get();
 
         // Retornar view detalhes do produto com os dados produto compactado
-        return view('frontend.product.product_details', compact('product', 'images', 'product_color_en', 'product_color_pt', 'product_size_en', 'product_size_pt', 'related'));
+        return view('frontend.product.product_details', compact('product', 'images', 'product_color_pt', 'product_size_pt', 'related'));
     }
 
-    // Método Tags Dinâmicos Produto IMPLEMENTAR FUTURAMENTE
-    public function ProductTags($tag)
-    {
-        // 'Pegar' 'Baixar' (verificar) o produto ativo
-        $products = Product::where('product_status', 1)->where('product_tags_pt', $tag)->orderBy('id', 'DESC')->paginate(3);
+    /**
+     * AQUI FAZ PARTE DO MEU PROJETO PESSOAL...
+     * NÃO FOI DEFINIDO NA DOCUMENTAÇÃO E NÃO DEVE SER COBRADO NA APRESENTAÇAO
+     * TRATA-SE, DE UM PROJETO REAL ONDE VENDEREI PRODUTOS REAIS NA ESPERANÇA
+     * DE FUGIR DO TRABALHO ASSALARIADO...
+     * 
+     */
+    // public function ProductTags($tag)
+    // {
+    //     // 'Pegar' 'Baixar' (verificar) o produto ativo
+    //     $products = Product::where('product_status', 1)->where('product_tags_pt', $tag)->orderBy('id', 'DESC')->paginate(3);
 
-        //'Baixar' as informações admin backend categorias no menu vertical esquerdo da HOME
-        $categories = Category::orderBy('category_name_pt', 'ASC')->get();
+    //     //'Baixar' as informações admin backend categorias no menu vertical esquerdo da HOME
+    //     $categories = Category::orderBy('category_name_pt', 'ASC')->get();
 
-        // retornar view tags com a variável compactada
-        return view('frontend.tags.tags_view', compact('products', 'categories'));
-    }
+    //     // retornar view tags com a variável compactada
+    //     return view('frontend.tags.tags_view', compact('products', 'categories'));
+    // }
 
     // Método redirecionamento para página detalhes produto
     public function ProductSubDetails($subcategory_id, $slug)
     {
-        // 'Pegar' 'Baixar' (verificar) o produto ativo
+        /**
+         * Acessar a Model Produto e buscar todos os 
+         * produtos com status ativo (1) pelo ID ordenados 
+         * em ordem decrescente e atrubuí-los à variável $products 
+         * e paginar, isto é, mostrar apenas 4 produtos na home_index
+         *  
+         * */
         $products = Product::where('product_status', 1)->where('subcategory_id', $subcategory_id)->orderBy('id', 'DESC')->paginate(4);
 
-        //'Baixar' as informações admin backend categorias no menu vertical esquerdo da HOME
+        // Acessar a Model Categoria e buscar todos os nomes_categorias ordenados em ordem crescente e atrubuílos à variável $categories
         $categories = Category::orderBy('category_name_pt', 'ASC')->get();
 
-        // retornar view tags com a variável compactada
+        // retornar view com as variáveis compactadas
         return view('frontend.product.subcategory_view', compact('products', 'categories'));
     }
 
     // Método redirecionamento para página detalhes produto
     public function ProductSubSubDetails($subsubcategory_id, $slug)
     {
-        // 'Pegar' 'Baixar' (verificar) o produto ativo
+        /**
+         * Acessar a Model Produto e buscar todos os 
+         * produtos com status ativo (1) pelo ID ordenados 
+         * em ordem decrescente e atrubuí-los à variável $products 
+         * e paginar, isto é, mostrar apenas 4 produtos na home_index
+         *  
+         * */
         $products = Product::where('product_status', 1)->where('subsubcategory_id', $subsubcategory_id)->orderBy('id', 'DESC')->paginate(4);
 
-        //'Baixar' as informações admin backend categorias no menu vertical esquerdo da HOME
+        // Acessar a Model Categoria e buscar todos os nomes_categorias ordenados em ordem crescente e atrubuílos à variável $categories
         $categories = Category::orderBy('category_name_pt', 'ASC')->get();
 
-        // retornar view tags com a variável compactada
+        // retornar view com as variáveis compactadas
         return view('frontend.product.subsubcategory_view', compact('products', 'categories'));
     }
 
     // Método p/ pegar os dados do produto em json e passar p/ a bootstrap modal utilizando AJAX
     public function ProductViewAjax($id)
     {
-        // Achar o produto pelo o ID
+        // Achar o produto pelo o ID com a marca e categoria
         $product = Product::with('category', 'brand')->findOrFail($id);
 
-        $color = $product->product_color_en;
+        // pegar a cor do produto e, se tiver mais coress, explodir a vírgula
+        $color = $product->product_color_pt;
         $product_color = explode(',', $color);
 
-        $size = $product->product_size_en;
+        // pegar o tamanho do produto e, se tiver mais coress, explodir a vírgula
+        $size = $product->product_size_pt;
         $product_size = explode(',', $size);
 
         return response()->json(array(

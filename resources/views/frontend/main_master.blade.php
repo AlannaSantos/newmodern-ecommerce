@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="">
-    <meta name="csrf-token" content="{{ csrf_token() }}"> <!-- ====== SEGURANÇA CSRF: CROSS SITE REFERENCING FORGERY ====== -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- ====== SEGURANÇA CSRF: CROSS SITE REFERENCING FORGERY ====== -->
     <meta name="NewModern Team" content="">
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
@@ -138,7 +139,7 @@
 
                             </div>
 
-                        </div><!-- /col md -->
+                        </div>
 
 
                         <div class="col-md-4">
@@ -147,32 +148,32 @@
 
                                 <!-- ====== PREÇO ====== -->
                                 <li class="list-group-item">
-                                    
+
                                     Preço Produto:
-                                    
+
                                     <strong class="text-danger">R$<span id="pprice"></span></strong>
                                     <del id="oldprice">R$</del>
                                 </li>
 
                                 <!-- ====== CÓDIGO PRODUTO ====== -->
                                 <li class="list-group-item">
-                                   
+
                                     Código do Produto:
 
-                                     <strong id="pcode"></strong>
+                                    <strong id="pcode"></strong>
                                 </li>
 
                                 <!-- ====== CATEGORIA ====== -->
                                 <li class="list-group-item">
-                                    
+
                                     Categoria:
 
                                     <strong id="pcategory"></strong>
                                 </li>
 
-                                 <!-- ====== MARCA ====== -->
+                                <!-- ====== MARCA ====== -->
                                 <li class="list-group-item">
-                                    
+
                                     Marca:
 
                                     <strong id="pbrand"></strong>
@@ -180,11 +181,11 @@
 
                                 <!-- ====== ESTOQUE ====== -->
                                 <li class="list-group-item">
-                                    
+
                                     Estoque:
 
-                                   <span class="badge badge-pill badge-success"
-                                        id="aviable" style="background: green; color: white;"></span>
+                                    <span class="badge badge-pill badge-success" id="aviable"
+                                        style="background: green; color: white;"></span>
                                     <span class="badge badge-pill badge-danger" id="stockout"
                                         style="background: red; color: white;"></span>
 
@@ -199,48 +200,48 @@
 
                             <div class="form-group">
                                 <label for="color">
-                                    
+
                                     Escolha a Cor
-                                  
+
                                 </label>
                                 <select class="form-control" id="color" name="color">
 
 
                                 </select>
-                            </div> 
+                            </div>
 
 
                             <div class="form-group" id="sizeArea">
                                 <label for="size">
-                                    
+
                                     Escolha o Tamanho
-                                   
+
                                 </label>
                                 <select class="form-control" id="size" name="size">
                                     <option>1</option>
 
                                 </select>
-                            </div> 
+                            </div>
                             <div class="form-group">
                                 <label for="qty">
-                                  
+
                                     Quantidade
-                                   
+
                                 </label>
                                 <input type="number" class="form-control" id="qty" value="1"
                                     min="1">
-                            </div> 
+                            </div>
 
                             <input type="hidden" id="product_id">
                             <button type="submit" class="btn btn-primary mb-2" onclick="addToCart()">
-                               
+
                                 Adicionar
-                              
+
                             </button>
 
                         </div>
-                    </div> 
-                </div> 
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -278,7 +279,7 @@
                     } else {
                         $('#pprice').text(data.product.product_discount_price);
                         $('#oldprice').text(data.product.product_selling_price);
-                    } // Final Preço Produto
+                    }
 
                     // Estoque
                     if (data.product.product_qty > 0) {
@@ -289,15 +290,16 @@
                         $('#aviable').text('');
                         $('#stockout').text('');
                         $('#stockout').text('esgotado');
-                    } // Final Estoque
+                    }
 
                     // Cor
                     $('select[name="color"]').empty();
                     $.each(data.color, function(key, value) {
                         $('select[name="color"]').append('<option value=" ' + value + ' ">' + value +
                             ' </option>')
-                    }) // Final cor
-                    // Tamanho se tiver tamnho, mostrar, caso contrário, esconder select field tamanho
+                    })
+
+                    // Tamanho se tiver tamanho, mostrar, caso contrário, esconder select field tamanho
                     $('select[name="size"]').empty();
                     $.each(data.size, function(key, value) {
                         $('select[name="size"]').append('<option value=" ' + value + ' ">' + value +
@@ -307,12 +309,11 @@
                         } else {
                             $('#sizeArea').show();
                         }
-                    }) // Final Tamanho
+                    })
 
                 }
             })
-
-        } // Final View Produto pela Modal
+        }
 
         // função onclick: addToCart()  adiciona o produto sem ter que 'carregar' a página novamente
         function addToCart() {
@@ -354,15 +355,14 @@
                             title: data.error
                         })
                     }
-                    //Final Toaster msg
+
                 }
             })
         }
-
     </script>
 
-    <!-- ========================  MINI CARRINHO HEADER AJAX ========================  -->
 
+    <!-- ========================  MINI CARRINHO HEADER AJAX ========================  -->
     <script type="text/javascript">
         function miniCart() {
             $.ajax({
@@ -375,7 +375,7 @@
                     var miniCart = ""
                     $.each(response.carts, function(key, value) {
                         miniCart +=
-                        `<div class="cart-item product-summary">
+                            `<div class="cart-item product-summary">
                             <div class="row">
                                 <div class="col-xs-4">
                                     <div class="image"> 
@@ -403,7 +403,6 @@
         }
         miniCart();
 
-
         // Função Remover Item Carrinho 
         function miniCartRemove(rowId) {
             $.ajax({
@@ -412,7 +411,7 @@
                 dataType: 'json',
                 success: function(data) {
                     miniCart();
-                    
+
                     const Toast = Swal.mixin({
                         toast: true,
                         position: 'top-end',
@@ -432,16 +431,13 @@
                             title: data.error
                         })
                     }
-                    // Final Toaster msg 
                 }
             });
         }
-        //  Final Remover Item Carrinho
     </script>
 
-    <!-- ======================== LISTA DESEJO AJAX ========================  -->
 
-    <!-- JS p/ Adicionar Item Lista de Desejos -->
+    <!-- ======================== LISTA DESEJO AJAX ========================  -->
     <script type="text/javascript">
         function addToWishList(product_id) {
             $.ajax({
@@ -471,7 +467,7 @@
                             title: data.error
                         })
                     }
-                    // Final Toaster msg 
+
                 }
             })
         }
@@ -488,7 +484,7 @@
                     var rows = ""
                     $.each(response, function(key, value) {
                         rows +=
-                            `<tr>
+                        `<tr>
                             <td class="col-md-2"><img src="/${value.product.product_thumbnail} "alt="imga"></td>
                                 <td class="col-md-7">
                                     <div class="product-name"><a href="#">${value.product.product_name_pt}</a></div>
@@ -533,7 +529,7 @@
                 dataType: 'json',
                 success: function(data) {
                     wishlist();
-                  
+
                     const Toast = Swal.mixin({
                         toast: true,
                         position: 'top-end',
@@ -553,19 +549,14 @@
                             title: data.error
                         })
                     }
-                    // Final Toaster msg
                 }
             });
         }
-        // Final ajax onclick function p/ remover item lista desejo
     </script>
 
 
 
     <!-- ========================  MEU CARRINHO AJAX ========================  -->
-
-
-    <!-- JS Ajax p/  'baixar' Item no Meu Carrinho view page -->
     <script type="text/javascript">
         // Função adiciona o produto sem ter que 'carregar' a página novamente -AJAX serve p/ isso...
         function cart() {
@@ -577,7 +568,7 @@
                     var rows = ""
                     $.each(response.carts, function(key, value) {
                         rows +=
-                        `<tr>
+                            `<tr>
                             <td class="col-md-2"><img src="/${value.options.image} "alt="imga"
                                 style="width:; height:"></td>
                                 <td class="col-md-2">
@@ -591,9 +582,9 @@
                                 <td class="col-md-2">
                                     ${value.options.color == null
                                         ?   `<span>
-                                               
+                                                                       
                                                 Cor Padrão
-                                               
+                                                                       
                                             </span>`
                                         :`<strong>${value.options.color}</strong>`
                                     }   
@@ -603,9 +594,9 @@
                                 <td class="col-md-2">
                                     ${value.options.size == null
                                         ? `<span>
-                                              
-                                            Tamanho Padrão
-                                               
+                                                                      
+                                                Tamanho Padrão
+                                                                       
                                             </span>`
                                         :`<strong>${value.options.size} </strong>` 
                                     }           
@@ -616,7 +607,7 @@
                                     ${value.qty > 1
 
                                     ?`<button type="submit" class="btn btn-danger btn-sm"id="${value.rowId}" 
-                                        onclick="mycartDecrement(this.id)">-</button>`
+                                            onclick="mycartDecrement(this.id)">-</button>`
 
                                     :`<button type="submit" class="btn btn-danger btn-sm" disabled >-</button>`
                                     }
@@ -662,7 +653,7 @@
                     // ids cupons, (não afeta o código, preciso trabalhar no cupon)
                     $('#couponField').show();
                     $('#coupon_name').val('');
-                  
+
                     const Toast = Swal.mixin({
                         toast: true,
                         position: 'top-end',
@@ -682,159 +673,156 @@
                             title: data.error
                         })
                     }
-                    // Final Toaster msg
                 }
             });
         }
-        // Final myCartRemove
 
         // ajax onclick function p/ incrementar item meu carrinho
-        function mycartIncrement(rowId){
-        $.ajax({
-            type:'GET',
-            url: "/cart-increment/"+rowId,
-            dataType:'json',
-            success:function(data){
-                couponCalculation();
-                cart();
-                miniCart();
-                
-            }
-        });
-
-    } // final increment
-
-        function mycartDecrement(rowId){
+        function mycartIncrement(rowId) {
             $.ajax({
-                type:'GET',
-                url: "/cart-decrement/"+rowId,
-                dataType:'json',
-                success:function(data){
+                type: 'GET',
+                url: "/cart-increment/" + rowId,
+                dataType: 'json',
+                success: function(data) {
+                    couponCalculation();
+                    cart();
+                    miniCart();
+
+                }
+            });
+
+        } // final increment
+
+        function mycartDecrement(rowId) {
+            $.ajax({
+                type: 'GET',
+                url: "/cart-decrement/" + rowId,
+                dataType: 'json',
+                success: function(data) {
                     couponCalculation();
                     cart();
                     miniCart();
                 }
             });
-        } 
-
+        }
     </script>
 
     <!-- ========================  VOUCHER AJAX APLICAR ========================  -->
-    
     <script type="text/javascript">
-        function applyCoupon(){
-          var coupon_name = $('#coupon_name').val();
+        function applyCoupon() {
+            var coupon_name = $('#coupon_name').val();
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
-                data: {coupon_name:coupon_name},
+                data: {
+                    coupon_name: coupon_name
+                },
                 url: "{{ url('/coupon-apply') }}",
-                success:function(data){
+                success: function(data) {
                     couponCalculation();
                     if (data.validity == true) {
-                    $('#couponField').hide();
+                        $('#couponField').hide();
                     }
-                                        
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 3000
-                        })
-                        if ($.isEmptyObject(data.error)) {
-                            Toast.fire({
-                                type: 'success',
-                                icon: 'success',
-                                title: data.success
-                            })
-                        }else{
-                            Toast.fire({
-                                type: 'error',
-                                icon: 'error',
-                                title: data.error
-                            })
-                        }
-                    }
-                })
-            }
 
-        function couponCalculation(){
-            $.ajax({
-                type:'GET',
-                url: "{{ url('/coupon-calculation') }}",
-                dataType: 'json',
-                success:function(data){
-                    if (data.total) {
-                        $('#couponCalField').html(
-                    `<tr>
-                        <th>
-                            <div class="cart-sub-total">
-                                Subtotal<span class="inner-left-md">$ ${data.total}</span>
-                            </div>
-
-                            <div class="cart-grand-total">
-                                Total<span class="inner-left-md">$ ${data.total}</span>
-                            </div>
-                        </th>
-                    </tr>`
-                    )
-                    }else{
-                        $('#couponCalField').html(
-                    `<tr>
-                        <th>
-                            <div class="cart-sub-total">
-                                Subtotal<span class="inner-left-md">$ ${data.subtotal}</span>
-                            </div>
-
-                            <div class="cart-sub-total">
-                                Coupon<span class="inner-left-md">$ ${data.coupon_name}</span>
-                                <button type="submit" onclick="couponRemove()"><i class="fa fa-times"></i></button>
-                            </div>
-
-                            <div class="cart-sub-total">
-                                Discount Amount<span class="inner-left-md">$ ${data.discount_amount}</span>
-                            </div>
-
-                            <div class="cart-grand-total">
-                                Grand Total<span class="inner-left-md">$ ${data.total_amount}</span>
-                            </div>
-                        </th>
-                    </tr>`
-                    )
-                    }
-                }
-            });
-        }
-        couponCalculation();
-    </script>
-       
-    <!-- ========================  VOUCHER AJAX REMOVER ========================  -->
-
-    <script type="text/javascript">
-           
-        function couponRemove(){
-            $.ajax({
-                type:'GET',
-                url: "{{ url('/coupon-remove') }}",
-                dataType: 'json',
-                success:function(data){
-                    couponCalculation();
-                    $('#couponField').show();
-                    $('#coupon_name').val('');
-                    
                     const Toast = Swal.mixin({
                         toast: true,
                         position: 'top-end',
                         showConfirmButton: false,
                         timer: 3000
-                        })
+                    })
                     if ($.isEmptyObject(data.error)) {
                         Toast.fire({
                             type: 'success',
                             icon: 'success',
                             title: data.success
                         })
-                    }else{
+                    } else {
+                        Toast.fire({
+                            type: 'error',
+                            icon: 'error',
+                            title: data.error
+                        })
+                    }
+                }
+            })
+        }
+
+        function couponCalculation() {
+            $.ajax({
+                type: 'GET',
+                url: "{{ url('/coupon-calculation') }}",
+                dataType: 'json',
+                success: function(data) {
+                    if (data.total) {
+                        $('#couponCalField').html(
+                            `<tr>
+                        <th>
+                            <div class="cart-sub-total">
+                                Subtotal<span class="inner-left-md">R$ ${data.total}</span>
+                            </div>
+
+                            <div class="cart-grand-total">
+                                Total<span class="inner-left-md">R$ ${data.total}</span>
+                            </div>
+                        </th>
+                    </tr>`
+                        )
+                    } else {
+                        $('#couponCalField').html(
+                            `<tr>
+                        <th>
+                            <div class="cart-sub-total">
+                                Subtotal<span class="inner-left-md">R$ ${data.subtotal}</span>
+                            </div>
+
+                            <div class="cart-sub-total">
+                                Coupon<span class="inner-left-md">R$ ${data.coupon_name}</span>
+                                <button type="submit" onclick="couponRemove()"><i class="fa fa-times"></i></button>
+                            </div>
+
+                            <div class="cart-sub-total">
+                                Discount Amount<span class="inner-left-md">R$ ${data.discount_amount}</span>
+                            </div>
+
+                            <div class="cart-grand-total">
+                                Grand Total<span class="inner-left-md">R$ ${data.total_amount}</span>
+                            </div>
+                        </th>
+                    </tr>`
+                        )
+                    }
+                }
+            });
+        }
+        couponCalculation();
+    </script>
+
+    <!-- ========================  VOUCHER AJAX REMOVER ========================  -->
+
+    <script type="text/javascript">
+        function couponRemove() {
+            $.ajax({
+                type: 'GET',
+                url: "{{ url('/coupon-remove') }}",
+                dataType: 'json',
+                success: function(data) {
+                    couponCalculation();
+                    $('#couponField').show();
+                    $('#coupon_name').val('');
+
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    if ($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                            type: 'success',
+                            icon: 'success',
+                            title: data.success
+                        })
+                    } else {
                         Toast.fire({
                             type: 'error',
                             icon: 'error',
@@ -845,7 +833,7 @@
             });
         }
     </script>
-      
+
 
 
 </body>

@@ -5,18 +5,13 @@
     NewModern | Meu Carrinho
 @endsection
 
-
-
 <div class="breadcrumb">
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
                 <li><a href="home.html">Home</a></li>
-                <li class='active'>
+                <li class='active'>Meu Carrinho</li>
 
-                    Meu Carrinho
-
-                </li>
             </ul>
         </div>
     </div>
@@ -32,38 +27,16 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th class="cart-romove item">
-
-                                            Imagem
-
-                                        </th>
-                                        <th class="cart-description item">
-
-                                            Produto
-
-                                        </th>
-                                        <th class="cart-product-name item">
-
-                                            Cor
-
-                                        </th>
-                                        <th class="cart-edit item">
-
-                                            Tamanho
-
-                                        </th>
-                                        <th class="cart-qty item">
-
-                                            Quantidade
-
-                                        </th>
+                                        <th class="cart-romove item">Imagem</th>
+                                        <th class="cart-description item">Produto</th>
+                                        <th class="cart-product-name item">Cor</th>
+                                        <th class="cart-edit item">Tamanho</th>
+                                        <th class="cart-qty item">Quantidade</th>
                                         <th class="cart-sub-total item">Subtotal</th>
-                                        <th class="cart-total last-item">
+                                        <th class="cart-total last-item">Remover</th>
 
-                                            Remover
-
-                                        </th>
                                     </tr>
+
                                 </thead>
 
                                 <!-- Chamei, pelo Id, o Ajax wishlist codificado na main_master -->
@@ -75,57 +48,6 @@
                         </div>
                     </div>
 
-                    <!-- ======================== CAMPO CALCULAR VALOR FRETE (IMPLEMENTAR FUTURAMENTE) ========================  -->
-                    <div class="col-md-4 col-sm-12 estimate-ship-tax">
-                        {{-- <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <span class="estimate-title">Estimate shipping and tax</span>
-                                        <p>Enter your destination to get shipping and tax.</p>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="form-group">
-                                            <label class="info-title control-label">Country <span>*</span></label>
-                                            <select class="form-control unicase-form-control selectpicker">
-                                                <option>--Select options--</option>
-                                                <option>India</option>
-                                                <option>SriLanka</option>
-                                                <option>united kingdom</option>
-                                                <option>saudi arabia</option>
-                                                <option>united arab emirates</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="info-title control-label">State/Province
-                                                <span>*</span></label>
-                                            <select class="form-control unicase-form-control selectpicker">
-                                                <option>--Select options--</option>
-                                                <option>TamilNadu</option>
-                                                <option>Kerala</option>
-                                                <option>Andhra Pradesh</option>
-                                                <option>Karnataka</option>
-                                                <option>Madhya Pradesh</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="info-title control-label">Zip/Postal Code</label>
-                                            <input type="text" class="form-control unicase-form-control text-input"
-                                                placeholder="">
-                                        </div>
-                                        <div class="pull-right">
-                                            <button type="submit" class="btn-upper btn btn-primary">GET A
-                                                QOUTE</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table> --}}
-                    </div>
 
 
                     <!-- ======================== ADICIONAR CUPOM/VOUCHERS (IMPLEMENTAR FUTURAMENTE) ========================  -->
@@ -184,6 +106,12 @@
                         @endif --}}
                     </div>
 
+                    <div class="col-md-4 col-sm-12 estimate-ship-tax">
+
+                        {{-- PLACE HOLDER --}}
+
+                    </div>
+
                     <!-- ======================== CAMPO SUBTOTAL/TOTAL ========================  -->
                     <div class="col-md-4 col-sm-12 cart-shopping-total">
                         <table class="table">
@@ -214,6 +142,4 @@
         <br>
         {{-- @include('frontend.body.brands') --}}
     </div>
-
-
 @endsection

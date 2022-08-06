@@ -324,7 +324,6 @@
                                         <!-- ==== BLOCO FOR EACH: chamar itens carrinho (página dinâmica) ==== -->
                                         @foreach ($carts as $item)
                                             <li>
-                                                <strong></strong>
 
                                                 <img src="{{ asset($item->options->image) }}"
                                                     style="width:50px; height:50px;">
@@ -332,14 +331,14 @@
                                             <br>
 
                                             <li>
-                                                <strong>Valor produto: </strong>R$ {{ $item->price }}
+                                                <strong>Valor produto:</strong> R$ {{ $item->price }}
                                             </li>
                                             <li>
-                                                <strong>Quantidade: </strong> {{ $item->qty }}
+                                                <strong>Quantidade:</strong> {{ $item->qty }}
                                             </li>
 
                                             <li>
-                                                <strong>Cor: </strong> {{ $item->options->color }}
+                                                <strong>Cor:</strong> {{ $item->options->color }}
                                             </li>
 
                                             <li>

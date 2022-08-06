@@ -8,22 +8,16 @@
                 <div class="col-md-10">
                     <div class="card">
                         <h3 class="text-center"><span class="text-danger">
-                                <!-- CONDIÇÃO: verificar a sessão do usuário, se for portugues, mostrar a opção inglês, se for inglês, mostrar opção português -->
-                                @if (session()->get('language') == 'portuguese')
-                                    Olá!
-                                @else
-                                    Hello!
-                                @endif
+
+                                Olá!
+
                             </span><strong>
                                 {{ Auth::user()->name }}</strong>
                             <br>
                             <br>
-                            <!-- CONDIÇÃO: verificar a sessão do usuário, se for portugues, mostrar a opção inglês, se for inglês, mostrar opção português -->
-                            @if (session()->get('language') == 'portuguese')
-                                Aqui estão todos os seus pedidos
-                            @else
-                                These are all your orders.
-                            @endif
+
+                            Aqui estão todos os seus pedidos
+
                         </h3>
                         <hr>
 
@@ -37,11 +31,8 @@
                                         <tr style="background: #a9cbf3a4;">
                                             <td class="col-md-1">
                                                 <label for="">
-                                                    @if (session()->get('language') == 'portuguese')
-                                                        Data
-                                                    @else
-                                                        Date
-                                                    @endif
+                                                    Data
+
                                                 </label>
                                             </td>
 
@@ -51,41 +42,29 @@
 
                                             <td class="col-md-3">
                                                 <label for="">
-                                                    @if (session()->get('language') == 'portuguese')
-                                                        Pagamento
-                                                    @else
-                                                        Payment
-                                                    @endif
+                                                    Pagamento
+
                                                 </label>
                                             </td>
 
                                             <td class="col-md-2">
                                                 <label for="">
-                                                    @if (session()->get('language') == 'portuguese')
-                                                        Numero Pedido
-                                                    @else
-                                                        Invoice Number
-                                                    @endif
+                                                    Numero Pedido
+
                                                 </label>
                                             </td>
 
                                             <td class="col-md-2">
                                                 <label for="">
-                                                    @if (session()->get('language') == 'portuguese')
-                                                        Pedido
-                                                    @else
-                                                        Order
-                                                    @endif
+                                                    Pedido
+
                                                 </label>
                                             </td>
 
                                             <td class="col-md-1">
                                                 <label for="">
-                                                    @if (session()->get('language') == 'portuguese')
-                                                        Ação
-                                                    @else
-                                                        Action
-                                                    @endif
+                                                    Ação
+
                                                 </label>
                                             </td>
 
@@ -122,11 +101,8 @@
                                                 <td class="col-md-1">
                                                     <a href="{{ url('user/order_details/' . $order->id) }}"
                                                         class="btn btn-sm btn-primary"><i class="fa fa-eye"></i>
-                                                        @if (session()->get('language') == 'portuguese')
-                                                            Visua..
-                                                        @else
-                                                            View
-                                                        @endif
+                                                        Visua..
+
                                                     </a>
 
                                                     {{-- \_blank: Load the URL into a new browsing context. This is usually a tab, 
@@ -135,11 +111,8 @@
                                                         href="{{ url('user/invoice_download/' . $order->id) }}"
                                                         class="btn btn-me btn-success" style="margin-top: 5px;"><i
                                                             class="fa fa-download" style="color: white;"></i>
-                                                        @if (session()->get('language') == 'portuguese')
-                                                            Boleto
-                                                        @else
-                                                            Invoice
-                                                        @endif
+                                                        Boleto
+
                                                     </a>
 
                                                 </td>
