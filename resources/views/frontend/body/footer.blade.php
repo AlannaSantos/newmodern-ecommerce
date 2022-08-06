@@ -27,7 +27,7 @@
                             <li class="media">
                                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i
                                             class="fa fa-envelope fa-stack-1x fa-inverse"></i> </span> </div>
-                                <div class="media-body"> <span><a href="#">www.newmodern.com.br</a></span> </div>
+                                <div class="media-body"> <span><a href="#">www.suporte@newmodern.com.br</a></span> </div>
                             </li>
                         </ul>
                     </div>
