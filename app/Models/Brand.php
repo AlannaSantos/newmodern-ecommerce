@@ -9,11 +9,12 @@ class Brand extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'brand_name_en',
-        'brand_name_pt',
-        'brand_slug_en',
-        'brand_slug_pt',
-        'brand_image',
-    ];
+    /** 
+     * protected $guarded substitui o fillable, 
+     * é um alternativa execelente pois assim elimina
+     * a necessidade de ter que digitar ou copiar e colar toda informação
+     * declarada na migrations table
+     * 
+     */
+    protected $guarded = [];
 }

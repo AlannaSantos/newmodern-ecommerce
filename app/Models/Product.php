@@ -11,7 +11,7 @@ class Product extends Model
 
     /** 
      * protected $guarded substitui o fillable, 
-     * é um alternativa execlente pois assim elimina
+     * é um alternativa execelente pois assim elimina
      * a necessidade de ter que digitar ou copiar e colar toda informação
      * declarada na migrations table
      * 

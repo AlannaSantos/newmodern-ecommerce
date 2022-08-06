@@ -9,15 +9,14 @@ class SubSubCategory extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'category_id',
-        'subcategory_id',
-        'subsubcategory_name_en',
-        'subsubcategory_name_pt',
-        'subsubcategory_slug_en',
-        'subsubcategory_slug_pt',
-
-    ];
+    /** 
+     * protected $guarded substitui o fillable, 
+     * é um alternativa execelente pois assim elimina
+     * a necessidade de ter que digitar ou copiar e colar toda informação
+     * declarada na migrations table
+     * 
+     */
+    protected $guarded = [];
 
     /* Relacionamento categoria com sub-categoria, necessário para mostrar 
        nome categoria na tabela subcategoria */

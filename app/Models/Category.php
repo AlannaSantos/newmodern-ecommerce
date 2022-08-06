@@ -9,11 +9,12 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'category_name_en',
-        'category_name_pt',
-        'category_slug_en',
-        'category_slug_pt',
-        
-    ];
+    /** 
+     * protected $guarded substitui o fillable, 
+     * é um alternativa execelente pois assim elimina
+     * a necessidade de ter que digitar ou copiar e colar toda informação
+     * declarada na migrations table
+     * 
+     */
+    protected $guarded = [];
 }
