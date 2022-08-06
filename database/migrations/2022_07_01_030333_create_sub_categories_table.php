@@ -17,9 +17,7 @@ return new class extends Migration
             $table->id();
             // IMPORTANTE! foreign key categoria definida aqui.
             $table->integer('category_id');
-            $table->string('subcategory_name_en')->nullable();
             $table->string('subcategory_name_pt');
-            $table->string('subcategory_slug_en')->nullable();
             $table->string('subcategory_slug_pt');
             $table->timestamps();
         });

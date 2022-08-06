@@ -21,18 +21,12 @@ return new class extends Migration
             $table->integer('category_id'); //fk_categoria1
             $table->integer('subcategory_id'); //fk_categoria2
             $table->integer('subsubcategory_id'); //fk_categoria3
-
-            $table->string('product_name_en')->nullable(); 
-            $table->string('product_name_pt'); 
-            $table->string('product_slug_en')->nullable(); 
+            $table->string('product_name_pt');  
             $table->string('product_slug_pt'); 
             $table->string('product_code')->nullable();
             $table->string('product_qty')->nullable();
-            $table->string('product_tags_en')->nullable(); 
-            $table->string('product_tags_pt')->nullable(); 
-            $table->string('product_size_en')->nullable(); 
+         //   $table->string('product_tags_pt')->nullable(); //projeto futuro lucas
             $table->string('product_size_pt')->nullable(); 
-            $table->string('product_color_en')->nullable(); 
             $table->string('product_color_pt')->nullable(); 
             $table->string('product_selling_price');
             $table->string('product_discount_price')->nullable(); 

@@ -21,7 +21,8 @@
                                     @csrf
 
                                     {{-- incluir dados que não podem ser vistos ou modificados 
-                                        pelos usuários quando um formulário é enviado --}}
+                                        pelos usuários quando um formulário é enviado
+                                        NECESSÁRIO PARA CRUD EDITAR --}}
                                     <input type="hidden" name="id" value="{{ $suppliers->id }}">
 
                                     <div class="form-group">

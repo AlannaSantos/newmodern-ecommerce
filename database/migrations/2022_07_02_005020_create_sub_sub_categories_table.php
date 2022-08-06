@@ -17,10 +17,8 @@ return new class extends Migration
             $table->id();
             $table->integer('category_id'); // IMPORTANTE! foreign key categoria definida aqui.
             $table->integer('subcategory_id'); // IMPORTANTE! foreign key sub-categoria definida aqui.
-            $table->string('subsubcategory_name_en')->nullable(); // PROJETO PESSOAL LUCAS | ISSO NÃO EXISTE
-            $table->string('subsubcategory_name_pt'); // NOME SUBCATEGORIA
-            $table->string('subsubcategory_slug_en')->nullable(); // PROJETO PESSOAL LUCAS | ISSO NÃO EXISTE
-            $table->string('subsubcategory_slug_pt')->nullable(); // PROJETO PESSOAL LUCAS | ISSO NÃO EXISTE
+            $table->string('subsubcategory_name_pt'); 
+            $table->string('subsubcategory_slug_pt')->nullable(); 
             $table->timestamps();
         });
     }
