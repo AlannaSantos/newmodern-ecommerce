@@ -1,7 +1,6 @@
 @extends('frontend.main_master')
 @section('content')
 
-    <!-- Mostrar nome produto no título dinamicamente -->
 @section('title')
     {{ $product->product_name_pt }} Detalhes
 @endsection
@@ -27,7 +26,7 @@
 
                 <div class="sidebar-module-container">
 
-                    <!-- ============ DOWNLOAD APP BANNER ============ -->
+                    <!-- ============ BANNER ============ -->
                     {{-- <div class="home-banner outer-top-n">
                         <img src="{{ asset('frontend/assets/images/banners/LHS-banner.jpg') }}" alt="Image">
                     </div> --}}
@@ -38,67 +37,9 @@
 
                     {{-- @include('frontend.fragments.hot_deals') --}}
 
-                    <!-- ============================================== HOT DEALS /FRAGMENT ============================================== -->
-
-                    <!-- ============================================== NEWSLETTER ============================================== -->
-                    {{-- <div class="sidebar-widget newsletter wow fadeInUp outer-bottom-small outer-top-vs">
-                        <h3 class="section-title">Newsletters</h3>
-                        <div class="sidebar-widget-body outer-top-xs">
-                            <p>Sign Up for Our Newsletter!</p>
-                            <form>
-                                <div class="form-group">
-                                    <label class="sr-only" for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
-                                        placeholder="Subscribe to our newsletter">
-                                </div>
-                                <button class="btn btn-primary">Subscribe</button>
-                            </form>
-                        </div><!-- /.sidebar-widget-body -->
-                    </div> --}}
-                    <!-- ============================================== NEWSLETTER: END ============================================== -->
-
-                    <!-- ============================================== Testimonials============================================== -->
-                    {{-- <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
-                        <div id="advertisement" class="advertisement">
-                            <div class="item">
-                                <div class="avatar"><img src="assets/images/testimonials/member1.png" alt="Image">
-                                </div>
-                                <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port
-                                    mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                <div class="clients_author">John Doe <span>Abc Company</span> </div>
-                                <!-- /.container-fluid -->
-                            </div><!-- /.item -->
-
-                            <div class="item">
-                                <div class="avatar"><img src="assets/images/testimonials/member3.png" alt="Image">
-                                </div>
-                                <div class="testimonials"><em>"</em>Vtae sodales aliq uam morbi non sem lacus port
-                                    mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                <div class="clients_author">Stephen Doe <span>Xperia Designs</span> </div>
-                            </div><!-- /.item -->
-
-                            <div class="item">
-                                <div class="avatar"><img src="assets/images/testimonials/member2.png" alt="Image">
-                                </div>
-                                <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port
-                                    mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                <div class="clients_author">Saraha Smith <span>Datsun &amp; Co</span> </div>
-                                <!-- /.container-fluid -->
-                            </div><!-- /.item -->
-
-                        </div><!-- /.owl-carousel -->
-                    </div> --}}
-
-                    <!-- ============================================== Testimonials: END ============================================== -->
-
-
-
-
-                    <!-- ============================================== IMAGENS PRODUTOS COMEÇA AQUI =================================== -->
-
-
                 </div>
             </div>
+            <!-- ========= IMAGENS PRODUTOS COMEÇA AQUI =========== -->
             <div class='col-md-9'>
                 <div class="detail-block">
                     <div class="row  wow fadeInUp">
@@ -119,16 +60,9 @@
                                         </div>
                                     @endforeach
 
-
-
                                 </div>
-                                <!-- ============================================== IMAGENS PRODUTOS TERMINA AQUI =================================== -->
 
-
-                                <!-- ============================================== THUMBNAILS PRODUTOS COMEÇA AQUI =================================== -->
-
-
-
+                                <!-- ============== THUMBNAILS PRODUTOS COMEÇA AQUI ============ -->
                                 <div class="single-product-gallery-thumbs gallery-thumbs">
 
                                     <div id="owl-single-product-thumbnails">
@@ -151,12 +85,7 @@
                         </div>
 
 
-                        <!-- ========================= THUMBNAILS PRODUTOS TERMINA AQUI ========================-->
-
-
-
                         <!-- ============================= DADOS PRODUTO AQUI ======================== -->
-
                         <div class='col-sm-6 col-md-7 product-info-block'>
                             <div class="product-info">
                                 <!-- ================ NOME AQUI =================-->
@@ -264,21 +193,14 @@
                                                 </label>
                                                 <select class="form-control unicase-form-control selectpicker"
                                                     id="color">
-                                                    <option selected="" disabled="">--
+                                                    <option selected="" disabled=""> Escolher Cor </option>
 
-                                                        Escolher Cor
-
-                                                    </option>
-                                                    <!-- Lógica internacionalização simples tradução  -->
                                                     {{-- função ucwords() padroniza palvras, assim o mantendeor 
                                                     não precisa se procupar em digitar Maniusculas ou Minusculas --}}
-
                                                     @foreach ($product_color_pt as $cor)
                                                         <option value="{{ $cor }}">{{ ucwords($cor) }}
                                                         </option>
                                                     @endforeach
-
-
 
                                                 </select>
                                             @endif
@@ -286,11 +208,8 @@
 
                                     </div>
 
-                                    <!-- ================ COR TERMINA AQUI =================-->
 
                                     <!-- ================ TAMANHO COMEÇA AQUI =================-->
-
-
                                     <div class="col-sm-6">
                                         {{-- BOOTSTRAP TIRADO DE shopping-cart.html Flipmart Template --}}
 
@@ -299,19 +218,13 @@
                                         <div class="form-group">
                                             @if ($product->product_size_pt == null)
                                             @else
-                                                <label class="info-title control-label">
+                                                <label class="info-title control-label">Escolher
+                                                    Tamanho<span></span></label>
 
-                                                    Escolher Tamanho
-                                                    <span></span>
-                                                </label>
                                                 <select class="form-control unicase-form-control selectpicker"
                                                     id="size">
-                                                    <option selected="" disabled="">--
+                                                    <option selected="" disabled="">Escolher Tamanho</option>
 
-                                                        Escolher Tamanho
-
-                                                    </option>
-                                                    <!-- Lógica internacionalização simples tradução da tag new -->
                                                     {{-- função ucwords() padroniza palvras, assim o mantendeor 
                                                     não precisa se procupar em digitar Maniusculas ou Minusculas --}}
 
@@ -326,9 +239,8 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <!-- ================ TAMANHO TERMINA AQUI =================-->
 
-                                    <!-- ================ ADD TO CART COM QUANTIDADE ESPECÍFICA  =================-->
+                                    <!-- =========== ADD TO CART COM QUANTIDADE ESPECÍFICA  =========-->
                                     <div class="quantity-container info-container">
                                         <div class="row">
 

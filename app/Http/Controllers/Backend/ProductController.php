@@ -124,7 +124,7 @@ class ProductController extends Controller
         $images = Images::where('product_id', $id)->get();
 
         // Pegar os dados MARCA mais recentes e atribui-los à variável $brands pela função get()
-        $brands = Brand::orderBy('brand_name', )->get();
+        $brands = Brand::orderBy('brand_name_pt', )->get();
 
         // Pegar todos os dados da Model Supplier ordenados pelo campo razão_social e atribuir à variável $suppliers em ordem decrescente
         $suppliers = Supplier::orderBy('supplier_company', 'ASC')->get();
@@ -143,7 +143,7 @@ class ProductController extends Controller
         $products = Product::findOrFail($id);
 
         // Após pegar os dados das Models e compactar-os, redirecionar o Admin p/ a página editar produtos
-        return view('backend.product.product_edit', compact('brands', 'categories', 'subcategories', 'subsubcategories', 'products', 'images'));
+        return view('backend.product.product_edit', compact('brands', 'suppliers', 'categories', 'subcategories', 'subsubcategories', 'products', 'images'));
     }
 
     // MÉTODO P/ GUARDAR OS DADOS EDITADOS DO PRODUTO NO PAINEL ADMIN | POST = (Request $request)

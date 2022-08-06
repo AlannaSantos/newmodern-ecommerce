@@ -1037,7 +1037,7 @@
                                 </div>
                             </div>
                         @endforeach
-I                    </div>
+                 </div>
 
                 </section> --}}
 

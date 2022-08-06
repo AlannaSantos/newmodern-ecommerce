@@ -583,7 +583,6 @@
                                     ${value.options.color == null
                                         ?   `<span>
                                                                        
-                                                Cor Padrão
                                                                        
                                             </span>`
                                         :`<strong>${value.options.color}</strong>`
@@ -595,7 +594,6 @@
                                     ${value.options.size == null
                                         ? `<span>
                                                                       
-                                                Tamanho Padrão
                                                                        
                                             </span>`
                                         :`<strong>${value.options.size} </strong>` 
