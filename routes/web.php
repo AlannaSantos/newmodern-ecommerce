@@ -54,7 +54,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/admin/dashboard', function () {
         return view('admin.index');
-    })->name('dashboard')->middleware('auth:admin');
+    })->name('admin.dashboard')->middleware('auth:admin');
 
     // Rota para logout do Admin
     Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');

@@ -124,7 +124,7 @@ AMBOS TIRADOS DA DOCUMENTAÇÃO API. --}}
                                     </div><br>
 
                                     <button class="btn btn-primary">
-                                        Enviar Pagamento
+                                        Proceder
                                     </button>
                                 </form>
                                 <hr>
